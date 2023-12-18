@@ -1,4 +1,4 @@
-# MTXdat library: A set of C++ functions to handle numeric data in the Matrix Market file format.
+# MTXdat library: A set of C++ functions to handle numeric data in the Matrix Market file format
 
 <p align="right"><a href="README.pt-br.md">Leia em português (br)</a></p>
 
