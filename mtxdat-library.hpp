@@ -66,7 +66,7 @@ void mtxdat_import( std::string mtxdat_path, std::complex<T> * data_array, int i
 }
 
 template<typename T>
-void mtxdat_export( std::string mtxdat_path, T * data_array, int imax, int jmax )
+void mtxdat_export( std::string mtxdat_path, T * data_array, int imax, int jmax, int out_precision = 0, bool out_scientific = false )
 {    
     std::fstream mtxdat_file;
     mtxdat_file.open( mtxdat_path, std::fstream::out );
@@ -78,14 +78,25 @@ void mtxdat_export( std::string mtxdat_path, T * data_array, int imax, int jmax 
 
     for ( int i=0; i<dim; i++ )
     {
-        mtxdat_file << "   " << data_array[i] << std::endl;
+        std::stringstream number;
+        number << std::showpos;
+        if ( out_precision != 0 )
+        {
+            number.precision(out_precision);
+        }
+        if ( out_scientific )
+        {
+            number << std::scientific;
+        }
+        number << "   " << data_array[i] << std::endl;
+        mtxdat_file << number.str();
     }
 
     mtxdat_file.close();
 }
 
 template<typename T>
-void mtxdat_export( std::string mtxdat_path, std::complex<T> * data_array, int imax, int jmax )
+void mtxdat_export( std::string mtxdat_path, std::complex<T> * data_array, int imax, int jmax, int out_precision = 0, bool out_scientific = false )
 {    
     std::fstream mtxdat_file;
     mtxdat_file.open( mtxdat_path, std::fstream::out );
@@ -97,7 +108,18 @@ void mtxdat_export( std::string mtxdat_path, std::complex<T> * data_array, int i
 
     for ( int i=0; i<dim; i++ )
     {
-        mtxdat_file << "   " << real(data_array[i]) << "   " << imag(data_array[i]) << std::endl;
+        std::stringstream number;
+        number << std::showpos;
+        if ( out_precision != 0 )
+        {
+            number.precision(out_precision);
+        }
+        if ( out_scientific )
+        {
+            number << std::scientific;
+        }
+        number << "   " << real(data_array[i]) << "   " << imag(data_array[i]) << std::endl;
+        mtxdat_file << number.str();
     }
 
     mtxdat_file.close();

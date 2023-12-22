@@ -23,10 +23,10 @@ void mtxdat_import( std::string mtxdat_path, std::complex<T> * data_array, int i
 - Export numeric data of a one-dimensional array to a MTX file
 ```
 template<typename T>
-void mtxdat_export( std::string mtxdat_path, T * data_array, int imax, int jmax )
+void mtxdat_export( std::string mtxdat_path, T * data_array, int imax, int jmax, int out_precision = 0, bool out_scientific = false )
 
 template<typename T>
-void mtxdat_export( std::string mtxdat_path, std::complex<T> * data_array, int imax, int jmax )
+void mtxdat_export( std::string mtxdat_path, std::complex<T> * data_array, int imax, int jmax, int out_precision = 0, bool out_scientific = false )
 ```
 
 ## How to use
