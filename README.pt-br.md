@@ -6,27 +6,61 @@ Os arquivos [Matrix Market (MTX)](https://math.nist.gov/MatrixMarket/formats.htm
 
 ## Funções disponíveis
 
+### Leitura e importação de dados
+
 - Obter dimensões (número de linhas e colunas) de um arquivo MTX
 ```
 void mtxdat_getsize( std::string mtxdat_path, int &imax, int &jmax )
 ```
 
-- Importar dados numéricos de um arquivo MTX e armazenar os valores em um array de uma dimensão
+- Importar dados numéricos de um arquivo MTX e armazenar os valores em um *array* de uma dimensão
 ```
 template<typename T>
 void mtxdat_import( std::string mtxdat_path, T * data_array, int imax, int jmax )
+```
 
+- Importar dados numéricos de um arquivo MTX e armazenar os valores em um *vector* de duas dimensões
+```
+template<typename T>
+void mtxdat_import( std::string mtxdat_path, std::vector<std::vector<T>> &data_vector, int imax, int jmax )
+```
+
+- Importar dados numéricos complexos de um arquivo MTX e armazenar os valores em um *complex array* de uma dimensão
+```
 template<typename T>
 void mtxdat_import( std::string mtxdat_path, std::complex<T> * data_array, int imax, int jmax )
 ```
 
-- Exportar dados numéricos de um array de uma dimensão para um arquivo MTX
+- Importar dados numéricos complexos de um arquivo MTX e armazenar os valores em um *complex vector* de duas dimensões
+```
+template<typename T>
+void mtxdat_import( std::string mtxdat_path, std::vector<std::vector<std::complex<T>>> &data_vector, int imax, int jmax )
+```
+
+### Exportação de dados
+
+- Exportar dados numéricos de um *array* de uma dimensão para um arquivo MTX
 ```
 template<typename T>
 void mtxdat_export( std::string mtxdat_path, T * data_array, int imax, int jmax, int out_precision = 0, bool out_scientific = false )
+```
 
+- Exportar dados numéricos de um *vector* de uma dimensão para um arquivo MTX
+```
+template<typename T>
+void mtxdat_export( std::string mtxdat_path, std::vector<std::vector<T>> &data_vector, int imax, int jmax, int out_precision = 0, bool out_scientific = false )
+```
+
+- Exportar dados numéricos complexos de um *complex array* de uma dimensão para um arquivo MTX
+```
 template<typename T>
 void mtxdat_export( std::string mtxdat_path, std::complex<T> * data_array, int imax, int jmax, int out_precision = 0, bool out_scientific = false )
+```
+
+- Exportar dados numéricos complexos de um *complex vector* de duas dimensões para um arquivo MTX
+```
+template<typename T>
+void mtxdat_export( std::string mtxdat_path, std::vector<std::vector<std::complex<T>>> &data_vector, int imax, int jmax, int out_precision = 0, bool out_scientific = false )
 ```
 
 ## Como usar
