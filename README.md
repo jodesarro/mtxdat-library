@@ -19,19 +19,19 @@ template<typename T>
 void mtxdat_import( std::string mtxdat_path, T * data_array, int imax, int jmax )
 ```
 
-- Import numeric data from a MTX file and store the values in a two-dimensional vector
-```
-template<typename T>
-void mtxdat_import( std::string mtxdat_path, std::vector<std::vector<T>> &data_vector, int imax, int jmax )
-```
-
 - Import complex numeric data from a MTX file and store the values in an one-dimensional complex array
 ```
 template<typename T>
 void mtxdat_import( std::string mtxdat_path, std::complex<T> * data_array, int imax, int jmax )
 ```
 
-- Import complex numeric data from a MTX file and store the values in a two-dimensional complex vector
+- Import numeric data from a MTX file and store the values in a three-dimensional vector
+```
+template<typename T>
+void mtxdat_import( std::string mtxdat_path, std::vector<std::vector<T>> &data_vector, int imax, int jmax )
+```
+
+- Import complex numeric data from a MTX file and store the values in a three-dimensional complex vector
 ```
 template<typename T>
 void mtxdat_import( std::string mtxdat_path, std::vector<std::vector<std::complex<T>>> &data_vector, int imax, int jmax )
@@ -45,19 +45,19 @@ template<typename T>
 void mtxdat_export( std::string mtxdat_path, T * data_array, int imax, int jmax, int out_precision = 0, bool out_scientific = false )
 ```
 
-- Export numeric data of a two-dimensional vector to a MTX file
-```
-template<typename T>
-void mtxdat_export( std::string mtxdat_path, std::vector<std::vector<T>> &data_vector, int imax, int jmax, int out_precision = 0, bool out_scientific = false )
-```
-
 - Export complex numeric data of an one-dimensional complex array to a MTX file
 ```
 template<typename T>
 void mtxdat_export( std::string mtxdat_path, std::complex<T> * data_array, int imax, int jmax, int out_precision = 0, bool out_scientific = false )
 ```
 
-- Export complex numeric data of a two-dimensional complex vector to a MTX file
+- Export numeric data of a three-dimensional vector to a MTX file
+```
+template<typename T>
+void mtxdat_export( std::string mtxdat_path, std::vector<std::vector<T>> &data_vector, int imax, int jmax, int out_precision = 0, bool out_scientific = false )
+```
+
+- Export complex numeric data of a three-dimensional complex vector to a MTX file
 ```
 template<typename T>
 void mtxdat_export( std::string mtxdat_path, std::vector<std::vector<std::complex<T>>> &data_vector, int imax, int jmax, int out_precision = 0, bool out_scientific = false )
